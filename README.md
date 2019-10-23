@@ -17,3 +17,7 @@ python visualize.py
 ```
 python mkjpg.py
 ```
+
+## Results
+### Example picture to test
+![cmd-markdown-logo](https://github.com/WangHelin1997/CNN-model-and-visualization/blob/master/orginal.jpg)
