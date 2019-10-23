@@ -31,10 +31,10 @@ python mkjpg.py
 ### Example picture to test
 ![cmd-markdown-logo](https://github.com/WangHelin1997/CNN-model-and-visualization/blob/master/orginal.jpg)
 
-### Filter Visualization(first convolutional layer)
+### Filter Visualization (the first convolutional layer)
 ![cmd-markdown-logo](https://github.com/WangHelin1997/CNN-model-and-visualization/blob/master/filter/layer_vis_conv1.jpg)
 
-### Feature maps Visualization(first and last convolutional layer)
+### Feature maps Visualization (the first and last convolutional layer)
 ![cmd-markdown-logo](https://github.com/WangHelin1997/CNN-model-and-visualization/blob/master/output/layer_vis_conv1.jpg)
 ![cmd-markdown-logo](https://github.com/WangHelin1997/CNN-model-and-visualization/blob/master/output/layer_vis_resblock4_2_0.jpg)
 
