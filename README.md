@@ -35,9 +35,9 @@ python mkjpg.py
 ![cmd-markdown-logo](https://github.com/WangHelin1997/CNN-model-and-visualization/blob/master/filter/layer_vis_conv1.jpg)
 
 ### Feature maps Visualization(first and last convolutional layer)
-![cmd-markdown-logo](https://github.com/WangHelin1997/https://github.com/WangHelin1997/CNN-model-and-visualization/blob/master/output/layer_vis_conv1.jpg)
-![cmd-markdown-logo](https://github.com/WangHelin1997/https://github.com/WangHelin1997/CNN-model-and-visualization/blob/master/output/layer_vis_resblock4_2_0.jpg)
+![cmd-markdown-logo](https://github.com/WangHelin1997/CNN-model-and-visualization/blob/master/output/layer_vis_conv1.jpg)
+![cmd-markdown-logo](https://github.com/WangHelin1997/CNN-model-and-visualization/blob/master/output/layer_vis_resblock4_2_0.jpg)
 
 ### The reconstructed patterns that cause high activations in feature maps of the last convolutional layer
-![cmd-markdown-logo](https://github.com/WangHelin1997/https://github.com/WangHelin1997/CNN-model-and-visualization/blob/master/generated/layer_vis_resblock4_2_1.jpg)
+![cmd-markdown-logo](https://github.com/WangHelin1997/CNN-model-and-visualization/blob/master/generated/layer_vis_resblock4_2_1.jpg)
 
