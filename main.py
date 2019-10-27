@@ -10,14 +10,14 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.utils.data as Data
 from net import ResNet
-from tensorboardX import SummaryWriter
-writer = SummaryWriter('./res/')
+# from tensorboardX import SummaryWriter
+# writer = SummaryWriter('./res/')
 parser = argparse.ArgumentParser(description='pytorch model')
 parser.add_argument('--batch_size', type=int, default=64, metavar='N',
                             help='input batch size for training (default: 64)')
 parser.add_argument('--test_batch_size', type=int, default=64, metavar='N',
                             help='input batch size for testing (default: 64)')
-parser.add_argument('--epochs', type=int,  metavar='N', default=40,
+parser.add_argument('--epochs', type=int,  metavar='N', default=20,
                             help='number of epochs to train')
 parser.add_argument('--gpu', type=list, default=[0,1,2,3],
                             help='gpu device number')
@@ -90,33 +90,33 @@ def train(net, criterion, optimizer, trainloader, epoch):
         running_loss += loss.item()
         _, predicted = torch.max(outputs.data, 1)
         correct += (predicted == labels).sum().item()
-        if i % 50 == 0:
-            correct_i = 0.0
-            total_i = 0
-            running_loss_i = 0.0
-            with torch.no_grad():
-                for data in trainloader:
-                    inputs, labels = data
-                    inputs, labels = inputs.cuda(), labels.cuda()
-                    outputs = net(inputs)
-                    loss = criterion(outputs, labels)
-                    _, predicted = torch.max(outputs.data, 1)
-                    total_i += labels.size(0)
-                    correct_i += (predicted == labels).sum().item()
-                    running_loss_i += loss.item()
+#         if i % 50 == 0:
+#             correct_i = 0.0
+#             total_i = 0
+#             running_loss_i = 0.0
+#             with torch.no_grad():
+#                 for data in trainloader:
+#                     inputs, labels = data
+#                     inputs, labels = inputs.cuda(), labels.cuda()
+#                     outputs = net(inputs)
+#                     loss = criterion(outputs, labels)
+#                     _, predicted = torch.max(outputs.data, 1)
+#                     total_i += labels.size(0)
+#                     correct_i += (predicted == labels).sum().item()
+#                     running_loss_i += loss.item()
 
-            iteration_loss = running_loss_i / float(len(trainloader))
-            iteration_acc = 100. * float(correct_i) / float(len(trainloader.dataset))
-            iteration = len(trainloader)* epoch + 1 + i
-            writer.add_scalar('scalar/Train_Loss_iteration', iteration_loss ,iteration)
-            writer.add_scalar('scalar/Train_Acc_iteration', iteration_acc, iteration)
+#             iteration_loss = running_loss_i / float(len(trainloader))
+#             iteration_acc = 100. * float(correct_i) / float(len(trainloader.dataset))
+#             iteration = len(trainloader)* epoch + 1 + i
+#             writer.add_scalar('scalar/Train_Loss_iteration', iteration_loss ,iteration)
+#             writer.add_scalar('scalar/Train_Acc_iteration', iteration_acc, iteration)
       
     epoch_loss = running_loss / float(len(trainloader))
     epoch_acc = 100. * float(correct) / float(len(trainloader.dataset))
     print('[%3d] train loss: %.3f' % (epoch + 1, epoch_loss))
     print('[%3d] train auc: %.3f' % (epoch + 1, epoch_acc))
-    writer.add_scalar('scalar/Train_Loss_epoch', epoch_loss , epoch + 1)
-    writer.add_scalar('scalar/Train_Acc_epoch', epoch_acc, epoch + 1)
+#     writer.add_scalar('scalar/Train_Loss_epoch', epoch_loss , epoch + 1)
+#     writer.add_scalar('scalar/Train_Acc_epoch', epoch_acc, epoch + 1)
         
         
 def test(net, criterion, testloader, epoch):
@@ -139,8 +139,8 @@ def test(net, criterion, testloader, epoch):
     epoch_acc = 100. * float(correct) / float(len(testloader.dataset))
     print('[%3d] test loss: %.3f' % (epoch + 1, epoch_loss))
     print('[%3d] test auc: %.3f' % (epoch + 1, epoch_acc))
-    writer.add_scalar('scalar/Test_Loss', epoch_loss , epoch + 1)
-    writer.add_scalar('scalar/Test_Acc', epoch_acc, epoch + 1)
+#     writer.add_scalar('scalar/Test_Loss', epoch_loss , epoch + 1)
+#     writer.add_scalar('scalar/Test_Acc', epoch_acc, epoch + 1)
 
 def test_class(net, testloader, epoch):
     
@@ -169,8 +169,8 @@ if __name__ == '__main__':
     # Define a Convolutional Neural Network
     net = ResNet()
     net = net.cuda()
-    x = torch.autograd.Variable(torch.rand(64, 3, 32, 32))
-    writer.add_graph(net, x.cuda(), verbose=True)
+#     x = torch.autograd.Variable(torch.rand(64, 3, 32, 32))
+#     writer.add_graph(net, x.cuda(), verbose=True)
     if args.load_model == True:
         net.load_state_dict(torch.load(args.model_path))
     # Define a Loss function and optimizer

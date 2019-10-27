@@ -36,13 +36,40 @@ def concat_jpg(fdir, png_dir, num):
                 plt.savefig(im_path, dpi=500)
         else:
             return
-    
+def concat_jpg2(fdir, png_dir):
+    for i in range(16):
+        im_path = fdir + png_dir+ str(i)+ '.jpg'
+        img = plt.imread(im_path)
+        plt.subplot(4, 4, i+1)
+        plt.xticks([])
+        plt.yticks([])
+        plt.axis('off')
+        plt.imshow(img)
+        im_path = fdir + 'final.jpg'
+        plt.savefig(im_path, dpi=500)
+def concat_jpg3():
+    for i in range(16):
+        im_path = 'orginal_' + str(i)+ '.jpg'
+        img = plt.imread(im_path)
+        plt.subplot(4, 4, i+1)
+        plt.xticks([])
+        plt.yticks([])
+        plt.axis('off')
+        plt.imshow(img)
+        im_path = 'final.jpg'
+        plt.savefig(im_path, dpi=500)        
 if __name__ == '__main__':
     
-    concat_jpg('./output/', 'conv1', 64)
-    concat_jpg('./filter/', 'conv1', 64)
-    concat_jpg('./output/', 'resblock4_2', 512)
-    concat_jpg('./generated/', 'conv1', 64)
-    concat_jpg('./generated/', 'resblock4_2', 512)
+#     concat_jpg2('./generated/resblock4_2/', 'layer_vis_resblock4_2_')
+#     concat_jpg2('./generated/conv1/', 'layer_vis_conv1_')
+#     concat_jpg2('./deconv/resblock4_2/', 'layer_vis_2_')
+#     concat_jpg2('./deconv/conv1/', 'layer_vis_1_')
+    concat_jpg3()
+    
+#     concat_jpg('./output/', 'conv1', 64)
+#     concat_jpg('./filter/', 'conv1', 64)
+#     concat_jpg('./output/', 'resblock4_2', 512)
+#     concat_jpg('./generated/', 'conv1', 64)
+#     concat_jpg('./generated/', 'resblock4_2', 512)
     
     
