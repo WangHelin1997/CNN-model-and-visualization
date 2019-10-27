@@ -21,7 +21,9 @@ python mkjpg.py
 ## Results
 ### Accuracy and Loss
 **Report the final accuracy (10,000 steps) of training and testing for the CIFAR-10 dataset.**
-< br >
+
+
+
 The batch size is set to 64, so we have 652 iterations per epoch. 10000 steps mean that we train our model for 13 epochs. We get a training accuracy of 96.724%, and a testing accuracy of 86.340%.
 ```
 [ 13] train loss: 0.104
